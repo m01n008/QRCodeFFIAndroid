@@ -22,8 +22,9 @@ public class QRGenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // setContentView(R.layout.qrcode_activity);
         String input = getIntent().getStringExtra("input");
-        Log.d("inputInActivity: ",input);
-        generateQRCode(input);
+            generateQRCode(input);
+
+
 
     }
 
@@ -38,7 +39,6 @@ public class QRGenActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream .toByteArray();
                 String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                Toast.makeText(this,"returning to kony",Toast.LENGTH_SHORT).show();
                 String returndata[] = new String[1];
                 returndata[0] = encoded;
                 try {
@@ -50,6 +50,7 @@ public class QRGenActivity extends AppCompatActivity {
             }
             else{
                 Toast.makeText(this, "Text Field is empty, please enter text", Toast.LENGTH_LONG).show();
+                finish();
             }
         } catch(Exception e) {
 

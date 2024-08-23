@@ -9,11 +9,9 @@ android {
     compileSdk = 33
 
     defaultConfig {
-     //   applicationId = "com.moin.qrcodeffiandroid"
         minSdk = 24
         targetSdk = 33
-    //    versionCode = 1
-      //  versionName = "1.0"
+        multiDexEnabled =  true
 
     }
 
@@ -26,6 +24,9 @@ android {
             )
         }
     }
+    dexOptions{
+        javaMaxHeapSize  = "4g"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -35,9 +36,10 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.journeyapps:zxing-android-embedded:4.1.0")
-    implementation(files("C:\\Users\\MuhammadMoin\\Downloads\\konywidgets.jar"))
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.multidex:multidex:2.0.1")
+    implementation(files("libs\\konywidgets.jar"))
 
 
 }

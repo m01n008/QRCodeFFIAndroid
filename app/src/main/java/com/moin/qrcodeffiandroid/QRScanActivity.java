@@ -78,7 +78,6 @@ public class QRScanActivity extends AppCompatActivity {
                 finish();
             } else {
                 scannedData  = result.getContents().toString();
-                Toast.makeText(this,"returning to kony",Toast.LENGTH_SHORT).show();
                 String returndata[] = new String[1];
                 returndata[0] = scannedData;
                 try {
@@ -87,7 +86,6 @@ public class QRScanActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                finish();
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
